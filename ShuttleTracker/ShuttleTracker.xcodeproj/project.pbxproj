@@ -1,0 +1,801 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		264BA7BE9C5877350ABFC558 /* Pods_ShuttleTrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC653D2B00106182C93D3A76 /* Pods_ShuttleTrackerTests.framework */; };
+		7A72E56683E52ECDE9C0D9C5 /* Pods_ShuttleTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB4A1AF1847BE45D67E72B18 /* Pods_ShuttleTracker.framework */; };
+		C2EBB266D9C1D69024E247CB /* Pods_ShuttleTracker_ShuttleTrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 180340D9A49D6C1611A958FF /* Pods_ShuttleTracker_ShuttleTrackerUITests.framework */; };
+		FE43FFE82735962000C709C7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FE43FFE72735961F00C709C7 /* GoogleService-Info.plist */; };
+		FE6F24C1272C5BC0009D87FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6F24C0272C5BC0009D87FA /* AppDelegate.swift */; };
+		FE6F24C3272C5BC0009D87FA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6F24C2272C5BC0009D87FA /* SceneDelegate.swift */; };
+		FE6F24C5272C5BC0009D87FA /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6F24C4272C5BC0009D87FA /* MapView.swift */; };
+		FE6F24C8272C5BC0009D87FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE6F24C6272C5BC0009D87FA /* Main.storyboard */; };
+		FE6F24CA272C5BC3009D87FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE6F24C9272C5BC3009D87FA /* Assets.xcassets */; };
+		FE6F24CD272C5BC3009D87FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE6F24CB272C5BC3009D87FA /* LaunchScreen.storyboard */; };
+		FE6F24D8272C5BC4009D87FA /* ShuttleTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6F24D7272C5BC4009D87FA /* ShuttleTrackerTests.swift */; };
+		FE6F24E2272C5BC4009D87FA /* ShuttleTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6F24E1272C5BC4009D87FA /* ShuttleTrackerUITests.swift */; };
+		FE6F24E4272C5BC4009D87FA /* ShuttleTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6F24E3272C5BC4009D87FA /* ShuttleTrackerUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FE6F24D4272C5BC4009D87FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FE6F24B5272C5BC0009D87FA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FE6F24BC272C5BC0009D87FA;
+			remoteInfo = ShuttleTracker;
+		};
+		FE6F24DE272C5BC4009D87FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FE6F24B5272C5BC0009D87FA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FE6F24BC272C5BC0009D87FA;
+			remoteInfo = ShuttleTracker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		180340D9A49D6C1611A958FF /* Pods_ShuttleTracker_ShuttleTrackerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShuttleTracker_ShuttleTrackerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		82D857A7683B55FEF2485707 /* Pods-ShuttleTrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShuttleTrackerTests.debug.xcconfig"; path = "Target Support Files/Pods-ShuttleTrackerTests/Pods-ShuttleTrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9198C228117E381F2BC88B0A /* Pods-ShuttleTracker-ShuttleTrackerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShuttleTracker-ShuttleTrackerUITests.release.xcconfig"; path = "Target Support Files/Pods-ShuttleTracker-ShuttleTrackerUITests/Pods-ShuttleTracker-ShuttleTrackerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		97979212FBA657F798A2CCFC /* Pods-ShuttleTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShuttleTracker.debug.xcconfig"; path = "Target Support Files/Pods-ShuttleTracker/Pods-ShuttleTracker.debug.xcconfig"; sourceTree = "<group>"; };
+		BC653D2B00106182C93D3A76 /* Pods_ShuttleTrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShuttleTrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB4A1AF1847BE45D67E72B18 /* Pods_ShuttleTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShuttleTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E743FD49CBC2642F7EE2FA80 /* Pods-ShuttleTrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShuttleTrackerTests.release.xcconfig"; path = "Target Support Files/Pods-ShuttleTrackerTests/Pods-ShuttleTrackerTests.release.xcconfig"; sourceTree = "<group>"; };
+		F145AF7264502BE30468F6D1 /* Pods-ShuttleTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShuttleTracker.release.xcconfig"; path = "Target Support Files/Pods-ShuttleTracker/Pods-ShuttleTracker.release.xcconfig"; sourceTree = "<group>"; };
+		FDF071D34F548EBDE13FF713 /* Pods-ShuttleTracker-ShuttleTrackerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShuttleTracker-ShuttleTrackerUITests.debug.xcconfig"; path = "Target Support Files/Pods-ShuttleTracker-ShuttleTrackerUITests/Pods-ShuttleTracker-ShuttleTrackerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		FE41031A2735FF9900E09068 /* ShuttleTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShuttleTracker.entitlements; sourceTree = "<group>"; };
+		FE43FFE72735961F00C709C7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FE6F24BD272C5BC0009D87FA /* ShuttleTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShuttleTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE6F24C0272C5BC0009D87FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FE6F24C2272C5BC0009D87FA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		FE6F24C4272C5BC0009D87FA /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		FE6F24C7272C5BC0009D87FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FE6F24C9272C5BC3009D87FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FE6F24CC272C5BC3009D87FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FE6F24CE272C5BC3009D87FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE6F24D3272C5BC4009D87FA /* ShuttleTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShuttleTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE6F24D7272C5BC4009D87FA /* ShuttleTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuttleTrackerTests.swift; sourceTree = "<group>"; };
+		FE6F24DD272C5BC4009D87FA /* ShuttleTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShuttleTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE6F24E1272C5BC4009D87FA /* ShuttleTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuttleTrackerUITests.swift; sourceTree = "<group>"; };
+		FE6F24E3272C5BC4009D87FA /* ShuttleTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuttleTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FE6F24BA272C5BC0009D87FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A72E56683E52ECDE9C0D9C5 /* Pods_ShuttleTracker.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE6F24D0272C5BC4009D87FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				264BA7BE9C5877350ABFC558 /* Pods_ShuttleTrackerTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE6F24DA272C5BC4009D87FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2EBB266D9C1D69024E247CB /* Pods_ShuttleTracker_ShuttleTrackerUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D6BAA8D8D137A54CDDAB5F32 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				97979212FBA657F798A2CCFC /* Pods-ShuttleTracker.debug.xcconfig */,
+				F145AF7264502BE30468F6D1 /* Pods-ShuttleTracker.release.xcconfig */,
+				FDF071D34F548EBDE13FF713 /* Pods-ShuttleTracker-ShuttleTrackerUITests.debug.xcconfig */,
+				9198C228117E381F2BC88B0A /* Pods-ShuttleTracker-ShuttleTrackerUITests.release.xcconfig */,
+				82D857A7683B55FEF2485707 /* Pods-ShuttleTrackerTests.debug.xcconfig */,
+				E743FD49CBC2642F7EE2FA80 /* Pods-ShuttleTrackerTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F850502012E4EE6B209D3BC4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DB4A1AF1847BE45D67E72B18 /* Pods_ShuttleTracker.framework */,
+				180340D9A49D6C1611A958FF /* Pods_ShuttleTracker_ShuttleTrackerUITests.framework */,
+				BC653D2B00106182C93D3A76 /* Pods_ShuttleTrackerTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FE6F24B4272C5BC0009D87FA = {
+			isa = PBXGroup;
+			children = (
+				FE6F24BF272C5BC0009D87FA /* ShuttleTracker */,
+				FE6F24D6272C5BC4009D87FA /* ShuttleTrackerTests */,
+				FE6F24E0272C5BC4009D87FA /* ShuttleTrackerUITests */,
+				FE6F24BE272C5BC0009D87FA /* Products */,
+				D6BAA8D8D137A54CDDAB5F32 /* Pods */,
+				F850502012E4EE6B209D3BC4 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FE6F24BE272C5BC0009D87FA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FE6F24BD272C5BC0009D87FA /* ShuttleTracker.app */,
+				FE6F24D3272C5BC4009D87FA /* ShuttleTrackerTests.xctest */,
+				FE6F24DD272C5BC4009D87FA /* ShuttleTrackerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FE6F24BF272C5BC0009D87FA /* ShuttleTracker */ = {
+			isa = PBXGroup;
+			children = (
+				FE41031A2735FF9900E09068 /* ShuttleTracker.entitlements */,
+				FE6F24C0272C5BC0009D87FA /* AppDelegate.swift */,
+				FE6F24C2272C5BC0009D87FA /* SceneDelegate.swift */,
+				FE6F24C4272C5BC0009D87FA /* MapView.swift */,
+				FE6F24C6272C5BC0009D87FA /* Main.storyboard */,
+				FE6F24C9272C5BC3009D87FA /* Assets.xcassets */,
+				FE6F24CB272C5BC3009D87FA /* LaunchScreen.storyboard */,
+				FE6F24CE272C5BC3009D87FA /* Info.plist */,
+				FE43FFE72735961F00C709C7 /* GoogleService-Info.plist */,
+			);
+			path = ShuttleTracker;
+			sourceTree = "<group>";
+		};
+		FE6F24D6272C5BC4009D87FA /* ShuttleTrackerTests */ = {
+			isa = PBXGroup;
+			children = (
+				FE6F24D7272C5BC4009D87FA /* ShuttleTrackerTests.swift */,
+			);
+			path = ShuttleTrackerTests;
+			sourceTree = "<group>";
+		};
+		FE6F24E0272C5BC4009D87FA /* ShuttleTrackerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FE6F24E1272C5BC4009D87FA /* ShuttleTrackerUITests.swift */,
+				FE6F24E3272C5BC4009D87FA /* ShuttleTrackerUITestsLaunchTests.swift */,
+			);
+			path = ShuttleTrackerUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FE6F24BC272C5BC0009D87FA /* ShuttleTracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FE6F24E7272C5BC4009D87FA /* Build configuration list for PBXNativeTarget "ShuttleTracker" */;
+			buildPhases = (
+				32551899A42E0E5573E02FEE /* [CP] Check Pods Manifest.lock */,
+				FE6F24B9272C5BC0009D87FA /* Sources */,
+				FE6F24BA272C5BC0009D87FA /* Frameworks */,
+				FE6F24BB272C5BC0009D87FA /* Resources */,
+				97FA99AF449BDFFD4A3F6CEA /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShuttleTracker;
+			productName = ShuttleTracker;
+			productReference = FE6F24BD272C5BC0009D87FA /* ShuttleTracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FE6F24D2272C5BC4009D87FA /* ShuttleTrackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FE6F24EA272C5BC4009D87FA /* Build configuration list for PBXNativeTarget "ShuttleTrackerTests" */;
+			buildPhases = (
+				DD39D30AE444A98A2AF725FA /* [CP] Check Pods Manifest.lock */,
+				FE6F24CF272C5BC4009D87FA /* Sources */,
+				FE6F24D0272C5BC4009D87FA /* Frameworks */,
+				FE6F24D1272C5BC4009D87FA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FE6F24D5272C5BC4009D87FA /* PBXTargetDependency */,
+			);
+			name = ShuttleTrackerTests;
+			productName = ShuttleTrackerTests;
+			productReference = FE6F24D3272C5BC4009D87FA /* ShuttleTrackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FE6F24DC272C5BC4009D87FA /* ShuttleTrackerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FE6F24ED272C5BC4009D87FA /* Build configuration list for PBXNativeTarget "ShuttleTrackerUITests" */;
+			buildPhases = (
+				2E52E822D1AE364719C1B60B /* [CP] Check Pods Manifest.lock */,
+				FE6F24D9272C5BC4009D87FA /* Sources */,
+				FE6F24DA272C5BC4009D87FA /* Frameworks */,
+				FE6F24DB272C5BC4009D87FA /* Resources */,
+				8776C624050DBAD7BCEBC721 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FE6F24DF272C5BC4009D87FA /* PBXTargetDependency */,
+			);
+			name = ShuttleTrackerUITests;
+			productName = ShuttleTrackerUITests;
+			productReference = FE6F24DD272C5BC4009D87FA /* ShuttleTrackerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FE6F24B5272C5BC0009D87FA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1310;
+				LastUpgradeCheck = 1310;
+				TargetAttributes = {
+					FE6F24BC272C5BC0009D87FA = {
+						CreatedOnToolsVersion = 13.1;
+					};
+					FE6F24D2272C5BC4009D87FA = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = FE6F24BC272C5BC0009D87FA;
+					};
+					FE6F24DC272C5BC4009D87FA = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = FE6F24BC272C5BC0009D87FA;
+					};
+				};
+			};
+			buildConfigurationList = FE6F24B8272C5BC0009D87FA /* Build configuration list for PBXProject "ShuttleTracker" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FE6F24B4272C5BC0009D87FA;
+			productRefGroup = FE6F24BE272C5BC0009D87FA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FE6F24BC272C5BC0009D87FA /* ShuttleTracker */,
+				FE6F24D2272C5BC4009D87FA /* ShuttleTrackerTests */,
+				FE6F24DC272C5BC4009D87FA /* ShuttleTrackerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FE6F24BB272C5BC0009D87FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE6F24CD272C5BC3009D87FA /* LaunchScreen.storyboard in Resources */,
+				FE43FFE82735962000C709C7 /* GoogleService-Info.plist in Resources */,
+				FE6F24CA272C5BC3009D87FA /* Assets.xcassets in Resources */,
+				FE6F24C8272C5BC0009D87FA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE6F24D1272C5BC4009D87FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE6F24DB272C5BC4009D87FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2E52E822D1AE364719C1B60B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ShuttleTracker-ShuttleTrackerUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		32551899A42E0E5573E02FEE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ShuttleTracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8776C624050DBAD7BCEBC721 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShuttleTracker-ShuttleTrackerUITests/Pods-ShuttleTracker-ShuttleTrackerUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShuttleTracker-ShuttleTrackerUITests/Pods-ShuttleTracker-ShuttleTrackerUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ShuttleTracker-ShuttleTrackerUITests/Pods-ShuttleTracker-ShuttleTrackerUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		97FA99AF449BDFFD4A3F6CEA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShuttleTracker/Pods-ShuttleTracker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShuttleTracker/Pods-ShuttleTracker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ShuttleTracker/Pods-ShuttleTracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD39D30AE444A98A2AF725FA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ShuttleTrackerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FE6F24B9272C5BC0009D87FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE6F24C5272C5BC0009D87FA /* MapView.swift in Sources */,
+				FE6F24C1272C5BC0009D87FA /* AppDelegate.swift in Sources */,
+				FE6F24C3272C5BC0009D87FA /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE6F24CF272C5BC4009D87FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE6F24D8272C5BC4009D87FA /* ShuttleTrackerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE6F24D9272C5BC4009D87FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE6F24E2272C5BC4009D87FA /* ShuttleTrackerUITests.swift in Sources */,
+				FE6F24E4272C5BC4009D87FA /* ShuttleTrackerUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FE6F24D5272C5BC4009D87FA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FE6F24BC272C5BC0009D87FA /* ShuttleTracker */;
+			targetProxy = FE6F24D4272C5BC4009D87FA /* PBXContainerItemProxy */;
+		};
+		FE6F24DF272C5BC4009D87FA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FE6F24BC272C5BC0009D87FA /* ShuttleTracker */;
+			targetProxy = FE6F24DE272C5BC4009D87FA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FE6F24C6272C5BC0009D87FA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FE6F24C7272C5BC0009D87FA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FE6F24CB272C5BC3009D87FA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FE6F24CC272C5BC3009D87FA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FE6F24E5272C5BC4009D87FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FE6F24E6272C5BC4009D87FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FE6F24E8272C5BC4009D87FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97979212FBA657F798A2CCFC /* Pods-ShuttleTracker.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ShuttleTracker/ShuttleTracker.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5BHAWQJGY5;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ShuttleTracker/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Shuttle Tracker";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Would like to be able to show you your location on the map";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Henhen1227.ShuttleTracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FE6F24E9272C5BC4009D87FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F145AF7264502BE30468F6D1 /* Pods-ShuttleTracker.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ShuttleTracker/ShuttleTracker.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5BHAWQJGY5;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ShuttleTracker/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Shuttle Tracker";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Would like to be able to show you your location on the map";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Henhen1227.ShuttleTracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FE6F24EB272C5BC4009D87FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82D857A7683B55FEF2485707 /* Pods-ShuttleTrackerTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5BHAWQJGY5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Henhen1227.ShuttleTrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShuttleTracker.app/ShuttleTracker";
+			};
+			name = Debug;
+		};
+		FE6F24EC272C5BC4009D87FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E743FD49CBC2642F7EE2FA80 /* Pods-ShuttleTrackerTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5BHAWQJGY5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Henhen1227.ShuttleTrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShuttleTracker.app/ShuttleTracker";
+			};
+			name = Release;
+		};
+		FE6F24EE272C5BC4009D87FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDF071D34F548EBDE13FF713 /* Pods-ShuttleTracker-ShuttleTrackerUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5BHAWQJGY5;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Henhen1227.ShuttleTrackerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ShuttleTracker;
+			};
+			name = Debug;
+		};
+		FE6F24EF272C5BC4009D87FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9198C228117E381F2BC88B0A /* Pods-ShuttleTracker-ShuttleTrackerUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5BHAWQJGY5;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Henhen1227.ShuttleTrackerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ShuttleTracker;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FE6F24B8272C5BC0009D87FA /* Build configuration list for PBXProject "ShuttleTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE6F24E5272C5BC4009D87FA /* Debug */,
+				FE6F24E6272C5BC4009D87FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FE6F24E7272C5BC4009D87FA /* Build configuration list for PBXNativeTarget "ShuttleTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE6F24E8272C5BC4009D87FA /* Debug */,
+				FE6F24E9272C5BC4009D87FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FE6F24EA272C5BC4009D87FA /* Build configuration list for PBXNativeTarget "ShuttleTrackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE6F24EB272C5BC4009D87FA /* Debug */,
+				FE6F24EC272C5BC4009D87FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FE6F24ED272C5BC4009D87FA /* Build configuration list for PBXNativeTarget "ShuttleTrackerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE6F24EE272C5BC4009D87FA /* Debug */,
+				FE6F24EF272C5BC4009D87FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FE6F24B5272C5BC0009D87FA /* Project object */;
+}

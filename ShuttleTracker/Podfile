@@ -1,0 +1,25 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'ShuttleTracker' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for ShuttleTracker
+
+  pod 'Firebase'
+  pod 'Firebase/Database'
+  pod 'Firebase/Analytics'
+  pod 'Google-Mobile-Ads-SDK'
+
+
+  target 'ShuttleTrackerTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'ShuttleTrackerUITests' do
+    # Pods for testing
+  end
+
+end
