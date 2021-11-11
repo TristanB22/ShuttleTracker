@@ -1,0 +1,9 @@
+ react native
+**/node_modules/
+**/.expo/
+**/dist/
+**/npm-debug.*
+
+
+# macOS
+**/.DS_Store
