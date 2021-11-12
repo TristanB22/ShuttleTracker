@@ -2,7 +2,28 @@
 <html>
     <head>
       <title>Sps Bus Tracker</title>
-      <script src="./index.js"></script>
+      <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        const firebaseConfig = {
+          apiKey: "AIzaSyCRTi0kvX8t16QIzPz3QOLwOCRizNeITpM",
+          authDomain: "sps-bus-tracker.firebaseapp.com",
+          databaseURL: "https://sps-bus-tracker-default-rtdb.firebaseio.com",
+          projectId: "sps-bus-tracker",
+          storageBucket: "sps-bus-tracker.appspot.com",
+          messagingSenderId: "1005772135057",
+          appId: "1:1005772135057:web:c81a978c4861352b7afd30",
+          measurementId: "G-DV370G49WL"
+        };
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
+      
+      <script src="index.js"></script>
+      
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -19,6 +40,7 @@
         
         <div class="mainView">
             <h1>Hello World</h1>
+            
         </div>
     </body>
 </html>
