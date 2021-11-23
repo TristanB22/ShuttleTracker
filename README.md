@@ -7,6 +7,15 @@ the project.
 We plan to kick this into high gear after the ACSL competition has finished. Check back for updates around December!
 
 
+----------------
+App Plan
+
+
+
+-----------------
+Website Plan
+
+
 -----------------
 Arduino Plan
    
