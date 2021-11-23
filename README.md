@@ -20,6 +20,7 @@ Website Plan
 Arduino Plan
    
 The plan for the arduino is 
+
 1.) collect gps cooridnates on the arduino
 
 2.) send that to arduino cloud
