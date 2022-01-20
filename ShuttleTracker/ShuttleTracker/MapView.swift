@@ -42,6 +42,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     let localRegion = MKCoordinateRegion.init(center: CLLocationCoordinate2D.init(latitude: 43.19, longitude: -71.552), span: MKCoordinateSpan.init(latitudeDelta: 0.063, longitudeDelta: 0.063))
     
     var ref: DatabaseReference!
+    var timeRef: DatabaseReference!
     
     @IBOutlet weak var MapView: MKMapView!
     
@@ -58,6 +59,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     @IBOutlet weak var BusUnitLabel: UILabel!
     @IBOutlet weak var SchoolDistance: UILabel!
     @IBOutlet weak var SchoolUnitLabel: UILabel!
+    
+    @IBOutlet weak var LastUpdateLabel: UILabel!
     
     @IBOutlet weak var AdSubView: UIView!
     var mainFrame = CGRect()
@@ -82,6 +85,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         })
         
         ref = Database.database().reference().child("Bus")
+        timeRef = Database.database().reference().child("TimeStamp")
+//        timeRef = Database.database().reference().child("Bus")
 
         /// `.childAdded` is a short way of writting `DataEventType.childAdded` because the expected type is `DataEventType`, Just like any other type such as `Int`,`String`and`Bool`
         ref.observe(.childAdded, with: { (snapshot) -> Void in
@@ -90,6 +95,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         ref.observe(.childChanged, with: { (snapshot) -> Void in
             self.handleSnapshot(snapshot: snapshot)
         })
+        
+        timeRef.observe(.childAdded, with: { (snapshot) -> Void in
+            self.handleSnapshot(snapshot: snapshot)
+        })
+        timeRef.observe(.childChanged, with: { (snapshot) -> Void in
+            self.handleSnapshot(snapshot: snapshot)
+        })
+//        ref.observe(.childChanged, with: { (snapshot) -> Void in
+//            self.handleSnapshot(snapshot: snapshot)
+//        })
         
         locationManager.requestWhenInUseAuthorization()
 
@@ -155,10 +170,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
 //        BusPath = MKPolyline(coordinates: pastBusLocations, count: pastBusLocations.count)
 //        MapView.addOverlay(BusPath)
-        
-        for i in 0...pastBusLocations.count-2 {
-            BusPath = gradientPolyline(locations: pastBusLocations, index: i)
-            MapView.addOverlay(BusPath)
+        if(pastBusLocations.count > 3){
+            for i in 0...pastBusLocations.count-2 {
+                BusPath = gradientPolyline(locations: pastBusLocations, index: i)
+                MapView.addOverlay(BusPath)
+            }
         }
         
         updateDistanceText()
@@ -245,7 +261,6 @@ extension MapViewController {
     
     @IBAction func Center(_ sender: Any) {
         MapView.setRegion(localRegion, animated: true)
-        
         sidebarIsShown = false
         ToggleMenu()
     }
@@ -286,14 +301,19 @@ extension MapViewController {
     func handleSnapshot(snapshot: DataSnapshot){
         print(snapshot)
         if snapshot.exists() {
-            let busData = snapshot.value as! String
-            pastBusLocations.removeAll()
-            for coordSet in busData.split(separator: "*") {
-                let data = coordSet.split(separator: ",")
-                pastBusLocations.append(CLLocationCoordinate2D.init(latitude: CLLocationDegrees(Double(data[0])!), longitude: Double(data[1])!))
-                print(data)
+            if(snapshot.key == "Bus"){
+                let busData = snapshot.value as! String
+                pastBusLocations.removeAll()
+                for coordSet in busData.split(separator: "*") {
+                    let data = coordSet.split(separator: ",")
+                    pastBusLocations.append(CLLocationCoordinate2D.init(latitude: CLLocationDegrees(Double(data[0])!), longitude: Double(data[1])!))
+                    print(data)
+                }
+                self.updateBusLocation()
+            }else if snapshot.key == "time"{
+                LastUpdateLabel.text = snapshot.value as? String;
             }
-            self.updateBusLocation()
+            
         }
     }
 }
