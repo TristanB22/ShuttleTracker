@@ -42,6 +42,15 @@
 				<key>UIPrerenderedIcon</key>
 				<false/>
 			</dict>
+			<key>AppIcon-5</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>AppIcon-5</string>
+				</array>
+				<key>UIPrerenderedIcon</key>
+				<false/>
+			</dict>
 		</dict>
 	</dict>
 	<key>GADApplicationIdentifier</key>
@@ -215,12 +224,12 @@
 				</dict>
 			</array>
 		</dict>
-	</dict>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Allow SPS Bus Tracker to use your location to show it on the map and measure your distance to various places. </string>
-	<key>NSLocationUsageDescription</key>
-	<string>Allow SPS Bus Tracker to use your location to show it on the map and measure your distance to various places. </string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Allow SPS Bus Tracker to use your location to show it on the map and measure your distance to various places. </string>
+    </dict>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>Allow SPS Bus Tracker to use your location to show it on the map and measure your distance to various places. </string>
+    <key>NSLocationUsageDescription</key>
+    <string>Allow SPS Bus Tracker to use your location to show it on the map and measure your distance to various places. </string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Allow SPS Bus Tracker to use your location to show it on the map and measure your distance to various places. </string>
 </dict>
 </plist>

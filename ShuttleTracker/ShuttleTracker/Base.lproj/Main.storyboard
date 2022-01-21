@@ -257,6 +257,9 @@
                                                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                                     </backgroundConfiguration>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="SelectAppIcon3:" destination="hKZ-24-nlI" eventType="touchUpInside" id="mDK-EE-bLC"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZX-8j-v88">
                                                 <rect key="frame" x="8" y="18" width="84" height="84"/>
@@ -266,7 +269,7 @@
                                                     <backgroundConfiguration key="background" image="IconImage-4"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="SelectAppIcon1:" destination="hKZ-24-nlI" eventType="touchUpInside" id="sJQ-qh-G4F"/>
+                                                    <action selector="SelectAppIcon4:" destination="hKZ-24-nlI" eventType="touchUpInside" id="nNa-81-gvY"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PER-xz-iYD">
@@ -276,30 +279,27 @@
                                                 <buttonConfiguration key="configuration" style="plain" title="" cornerStyle="medium">
                                                     <backgroundConfiguration key="background" image="IconImage-3"/>
                                                 </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="SelectAppIcon2:" destination="hKZ-24-nlI" eventType="touchUpInside" id="WCf-SB-YF4"/>
-                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LDC-ei-PPf">
-                                                <rect key="frame" x="306" y="18" width="84" height="84"/>
+                                                <rect key="frame" x="208" y="18" width="84" height="84"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="" cornerStyle="medium">
-                                                    <backgroundConfiguration key="background" image="IconImage-2"/>
+                                                    <backgroundConfiguration key="background" image="AppIcon-5.png"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="SelectAppIcon4:" destination="hKZ-24-nlI" eventType="touchUpInside" id="LRC-AC-5d2"/>
+                                                    <action selector="SelectAppIcon5:" destination="hKZ-24-nlI" eventType="touchUpInside" id="zPE-wD-hDA"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRK-9k-fXk">
-                                                <rect key="frame" x="208" y="18" width="84" height="84"/>
+                                                <rect key="frame" x="306" y="18" width="84" height="84"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="" cornerStyle="medium">
                                                     <backgroundConfiguration key="background" image="IconImage-1"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="SelectAppIcon3:" destination="hKZ-24-nlI" eventType="touchUpInside" id="Zd7-Z2-QDF"/>
+                                                    <action selector="SelectAppIcon1:" destination="hKZ-24-nlI" eventType="touchUpInside" id="4Yy-nX-O45"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -453,10 +453,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="AppIcon-5.png" width="28.799999237060547" height="28.799999237060547"/>
         <image name="BusIcon" width="48" height="48"/>
         <image name="CenterIcon" width="512" height="512"/>
         <image name="IconImage-1" width="72" height="72"/>
-        <image name="IconImage-2" width="72" height="72"/>
         <image name="IconImage-3" width="72" height="72"/>
         <image name="IconImage-4" width="72" height="72"/>
         <image name="SchoolIcon" width="48" height="48"/>

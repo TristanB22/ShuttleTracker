@@ -42,7 +42,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     let localRegion = MKCoordinateRegion.init(center: CLLocationCoordinate2D.init(latitude: 43.19, longitude: -71.552), span: MKCoordinateSpan.init(latitudeDelta: 0.063, longitudeDelta: 0.063))
     
     var ref: DatabaseReference!
-    var timeRef: DatabaseReference!
     
     @IBOutlet weak var MapView: MKMapView!
     
@@ -85,21 +84,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         })
         
         ref = Database.database().reference().child("Bus")
-        timeRef = Database.database().reference().child("TimeStamp")
-//        timeRef = Database.database().reference().child("Bus")
+//        timeRef = Database.database().reference().child("TimeStamp")
 
         /// `.childAdded` is a short way of writting `DataEventType.childAdded` because the expected type is `DataEventType`, Just like any other type such as `Int`,`String`and`Bool`
         ref.observe(.childAdded, with: { (snapshot) -> Void in
             self.handleSnapshot(snapshot: snapshot)
         })
         ref.observe(.childChanged, with: { (snapshot) -> Void in
-            self.handleSnapshot(snapshot: snapshot)
-        })
-        
-        timeRef.observe(.childAdded, with: { (snapshot) -> Void in
-            self.handleSnapshot(snapshot: snapshot)
-        })
-        timeRef.observe(.childChanged, with: { (snapshot) -> Void in
             self.handleSnapshot(snapshot: snapshot)
         })
 //        ref.observe(.childChanged, with: { (snapshot) -> Void in
@@ -298,8 +289,8 @@ extension MapViewController {
         addBannerViewToView(bannerView)
     }
     
+    //MARK: Handle Snapshots
     func handleSnapshot(snapshot: DataSnapshot){
-        print(snapshot)
         if snapshot.exists() {
             if(snapshot.key == "Bus"){
                 let busData = snapshot.value as! String
@@ -307,10 +298,9 @@ extension MapViewController {
                 for coordSet in busData.split(separator: "*") {
                     let data = coordSet.split(separator: ",")
                     pastBusLocations.append(CLLocationCoordinate2D.init(latitude: CLLocationDegrees(Double(data[0])!), longitude: Double(data[1])!))
-                    print(data)
                 }
                 self.updateBusLocation()
-            }else if snapshot.key == "time"{
+            }else if snapshot.key == "TimeStamp"{
                 LastUpdateLabel.text = snapshot.value as? String;
             }
             

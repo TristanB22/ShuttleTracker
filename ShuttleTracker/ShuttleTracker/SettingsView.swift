@@ -11,20 +11,25 @@ class SettingsView: UIViewController {
     }
     
     @IBAction func SelectAppIcon1(_ sender: Any) {
-        UIApplication.shared.setAlternateIconName("AppIcon-4")
-    }
-    
-    @IBAction func SelectAppIcon2(_ sender: Any) {
-        UIApplication.shared.setAlternateIconName("AppIcon-3")
-    }
-    
-    @IBAction func SelectAppIcon3(_ sender: Any) {
         UIApplication.shared.setAlternateIconName("AppIcon-1")
     }
     
-    @IBAction func SelectAppIcon4(_ sender: Any) {
+    @IBAction func SelectAppIcon2(_ sender: Any) {
         UIApplication.shared.setAlternateIconName("AppIcon-2")
     }
+    
+    @IBAction func SelectAppIcon3(_ sender: Any) {
+        UIApplication.shared.setAlternateIconName("AppIcon-3")
+    }
+    
+    @IBAction func SelectAppIcon4(_ sender: Any) {
+        UIApplication.shared.setAlternateIconName("AppIcon-4")
+    }
+
+    @IBAction func SelectAppIcon5(_ sender: Any) {
+        UIApplication.shared.setAlternateIconName("AppIcon-5")
+    }
+
     
     @IBAction func RateTheApp(_ sender: Any) {
         SKStoreReviewController.requestReview()

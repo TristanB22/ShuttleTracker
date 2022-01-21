@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7A72E56683E52ECDE9C0D9C5 /* Pods_ShuttleTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB4A1AF1847BE45D67E72B18 /* Pods_ShuttleTracker.framework */; };
 		FE43FFE82735962000C709C7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FE43FFE72735961F00C709C7 /* GoogleService-Info.plist */; };
+		FE49DAB6279B33F00006B41D /* AppIcon-5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE49DAB4279B33F00006B41D /* AppIcon-5@2x.png */; };
+		FE49DAB7279B33F00006B41D /* AppIcon-5@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE49DAB5279B33F00006B41D /* AppIcon-5@3x.png */; };
 		FE6F24C1272C5BC0009D87FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6F24C0272C5BC0009D87FA /* AppDelegate.swift */; };
 		FE6F24C3272C5BC0009D87FA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6F24C2272C5BC0009D87FA /* SceneDelegate.swift */; };
 		FE6F24C5272C5BC0009D87FA /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6F24C4272C5BC0009D87FA /* MapView.swift */; };
@@ -38,6 +40,8 @@
 		FDF071D34F548EBDE13FF713 /* Pods-ShuttleTracker-ShuttleTrackerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShuttleTracker-ShuttleTrackerUITests.debug.xcconfig"; path = "Target Support Files/Pods-ShuttleTracker-ShuttleTrackerUITests/Pods-ShuttleTracker-ShuttleTrackerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		FE41031A2735FF9900E09068 /* ShuttleTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShuttleTracker.entitlements; sourceTree = "<group>"; };
 		FE43FFE72735961F00C709C7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FE49DAB4279B33F00006B41D /* AppIcon-5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-5@2x.png"; sourceTree = "<group>"; };
+		FE49DAB5279B33F00006B41D /* AppIcon-5@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-5@3x.png"; sourceTree = "<group>"; };
 		FE6F24BD272C5BC0009D87FA /* ShuttleTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShuttleTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE6F24C0272C5BC0009D87FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE6F24C2272C5BC0009D87FA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -161,6 +165,8 @@
 				FEBE3C7E2797D65B00814431 /* AppIcon-3@3x.png */,
 				FEBE3C7C2797D65B00814431 /* AppIcon-4@2x.png */,
 				FEBE3C7B2797D65B00814431 /* AppIcon-4@3x.png */,
+				FE49DAB4279B33F00006B41D /* AppIcon-5@2x.png */,
+				FE49DAB5279B33F00006B41D /* AppIcon-5@3x.png */,
 			);
 			path = Icons;
 			sourceTree = "<group>";
@@ -226,8 +232,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEBE3C862797D65B00814431 /* AppIcon-3@3x.png in Resources */,
+				FE49DAB6279B33F00006B41D /* AppIcon-5@2x.png in Resources */,
 				FEBE3C842797D65B00814431 /* AppIcon-4@2x.png in Resources */,
 				FEBE3C832797D65B00814431 /* AppIcon-4@3x.png in Resources */,
+				FE49DAB7279B33F00006B41D /* AppIcon-5@3x.png in Resources */,
 				FEBE3C882797D65B00814431 /* AppIcon-2@3x.png in Resources */,
 				FE6F24CD272C5BC3009D87FA /* LaunchScreen.storyboard in Resources */,
 				FE43FFE82735962000C709C7 /* GoogleService-Info.plist in Resources */,
@@ -438,12 +446,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 97979212FBA657F798A2CCFC /* Pods-ShuttleTracker.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = ShuttleTracker/ShuttleTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 5BHAWQJGY5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShuttleTracker/Info.plist;
@@ -462,7 +470,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Henhen1227.ShuttleTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
@@ -476,12 +484,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F145AF7264502BE30468F6D1 /* Pods-ShuttleTracker.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = ShuttleTracker/ShuttleTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 5BHAWQJGY5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShuttleTracker/Info.plist;
@@ -500,7 +508,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Henhen1227.ShuttleTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
