@@ -216,5 +216,11 @@
 			</array>
 		</dict>
 	</dict>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Allow SPS Bus Tracker to use your location to show it on the map and measure your distance to various places. </string>
+	<key>NSLocationUsageDescription</key>
+	<string>Allow SPS Bus Tracker to use your location to show it on the map and measure your distance to various places. </string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Allow SPS Bus Tracker to use your location to show it on the map and measure your distance to various places. </string>
 </dict>
 </plist>
