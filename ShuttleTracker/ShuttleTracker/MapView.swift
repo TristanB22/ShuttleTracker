@@ -24,8 +24,13 @@ enum distanceUnits {
     case miles
 }
 
+var isDriver = false
+var isTracking = false
+let lengthOfBusPath = 25
+
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, GADBannerViewDelegate {
 
+    //Icons on the map
     var schoolPoint = CustomIcon()
     var busPoint = CustomIcon()
     var userPoint = CustomIcon()
@@ -34,24 +39,29 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var capitalPoint = CustomIcon()
     var BusPath = MKPolyline()
     
-    
-    var bannerView: GAMBannerView!
+    //For Google Ads, currently disabled
+//    var bannerView: GAMBannerView!
 
     let locationManager = CLLocationManager()
     
+    //Starting map view and view when "center" button is pressed
     let localRegion = MKCoordinateRegion.init(center: CLLocationCoordinate2D.init(latitude: 43.19, longitude: -71.552), span: MKCoordinateSpan.init(latitudeDelta: 0.063, longitudeDelta: 0.063))
     
     var ref: DatabaseReference!
     
     @IBOutlet weak var MapView: MKMapView!
     
-    //MARK: Sidebar
     var sidebarIsShown = false
     @IBOutlet weak var MenuSideView: UIView!
     @IBOutlet weak var menuView: menuIcon!
     
+    @IBOutlet weak var StartTrackingButton: UIButton!
+    @IBOutlet weak var StopTrackingButton: UIButton!
+    
+    
     ///Set to `distanceUnits.___`  to what ever the default should be
     var units = distanceUnits.miles
+    
     @IBOutlet weak var BusunitLabel: UILabel!
     
     @IBOutlet weak var BusDistance: UILabel!
@@ -62,6 +72,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     @IBOutlet weak var LastUpdateLabel: UILabel!
     
     @IBOutlet weak var AdSubView: UIView!
+    
     var mainFrame = CGRect()
     var adFrame = CGRect(x:0, y: 0, width:300, height: 40)
     
@@ -69,36 +80,75 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     //MARK: View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
+        //UserDefaults are Apple's way of saving data after the apps session is closed.
+        if(UserDefaults.standard.value(forKey: "isTracking") == nil){
+            UserDefaults.standard.setValue(false, forKey: "isTracking")
+        }else{
+            isTracking = UserDefaults.standard.value(forKey: "isTracking") as! Bool
+            if isTracking {
+                StartTrackingButton.isHidden = true
+                StopTrackingButton.isHidden = false
+            }
+        }
+        
+        if(UserDefaults.standard.value(forKey: "isDriver") == nil){
+            UserDefaults.standard.setValue(false, forKey: "isDriver")
+            
+            StartTrackingButton.isHidden = true
+            StopTrackingButton.isHidden = true
+            isTracking = false
+            isDriver = false
+        }else{
+            isDriver = UserDefaults.standard.value(forKey: "isDriver") as! Bool
+        }
+        
+        
         
         MenuSideView.frame = CGRect(x: -75, y: 0, width: 70, height: self.MapView.frame.height)
         mainFrame = view.frame
         
         //Testing Connection:
+        //Always "Not connected" when the app first opens
+        //Delay added so that the app has time to connect
+        
         let connectedRef = Database.database().reference(withPath: ".info/connected")
-        connectedRef.observe(.value, with: { snapshot in
-            if (snapshot.value as? Bool)! {
-                print("Connected")
-            } else {
-                print("Not connected")
-            }
+        
+        let delayTime = DispatchTime.now() + 5.0 //After 5 seconds
+        DispatchQueue.main.asyncAfter(deadline: delayTime, execute: {
+            connectedRef.observe(.value, with: { snapshot in
+                if (snapshot.value as? Bool)! {
+                    print("Connected")
+                } else {
+                    print("Not connected")
+                    
+                    let alertController = UIAlertController(title: "Couldn't connect to database", message: "Check your connection and try again", preferredStyle: .alert)
+                    let close = UIAlertAction(title: "Close", style: .cancel) { (action) -> Void in
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                    alertController.addAction(close)
+                    self.present(alertController, animated: true, completion: nil)
+                }
+            })
+            
+            //Also allow it to load the distance and update the text
+            self.updateDistanceText()
         })
         
-        ref = Database.database().reference().child("Bus")
-//        timeRef = Database.database().reference().child("TimeStamp")
+        ref = Database.database().reference().child("TestBus")
 
         /// `.childAdded` is a short way of writting `DataEventType.childAdded` because the expected type is `DataEventType`, Just like any other type such as `Int`,`String`and`Bool`
         ref.observe(.childAdded, with: { (snapshot) -> Void in
-            self.handleSnapshot(snapshot: snapshot)
+                self.handleSnapshot(snapshot: snapshot)
         })
         ref.observe(.childChanged, with: { (snapshot) -> Void in
-            self.handleSnapshot(snapshot: snapshot)
+                self.handleSnapshot(snapshot: snapshot)
         })
-//        ref.observe(.childChanged, with: { (snapshot) -> Void in
-//            self.handleSnapshot(snapshot: snapshot)
-//        })
+        
         
         locationManager.requestWhenInUseAuthorization()
-
+        
+        
+        
         MapView.region = localRegion
         
         schoolPoint.coordinate = CLLocationCoordinate2D.init(latitude: 43.1949, longitude: -71.57349769)
@@ -126,60 +176,60 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         MapView.addAnnotation(targetPoint)
         MapView.addAnnotation(marketbasketPoint)
         MapView.addAnnotation(capitalPoint)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-            self.updateDistanceText()
-        })
+    
         
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            ///Could Also use `kCLLocationAccuracyBestForNavigation` but would also then use excess cellular
+            //If the user isn't a driver, uses a less accurate measurement to use less data.
+            if isDriver {
+                locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+            }else {
+                locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            }
             locationManager.startUpdatingLocation()
         }
 
-        
-        bannerView = GAMBannerView(adSize: GADAdSizeBanner)
-        
-        bannerView.adUnitID = "ca-app-pub-8518185967716817/5711807395" // Code for actual ads
+
+//          Disabled for now
+
+//        bannerView = GAMBannerView(adSize: GADAdSizeBanner)
+//        bannerView.adUnitID = "" // Code for actual ads
 //        bannerView.adUnitID = "ca-app-pub-3940256099942544/6300978111" // Test Ads
-        
-        bannerView.delegate = self
-        bannerView.rootViewController = self
-        bannerView.load(GAMRequest())
-        addBannerViewToView(bannerView)
+//
+//        bannerView.delegate = self
+//        bannerView.rootViewController = self
+//        bannerView.load(GAMRequest())
+//        addBannerViewToView(bannerView)
         
         ToggleMenu()
     }
     
-    //MARK: Bus Data Updated
+    //MARK: Update Bus Location
     func updateBusLocation(){
-        //Change Depending on the Ardunio's method of saving the data
-        busPoint.coordinate = pastBusLocations[0]
-        
-        MapView.removeOverlays(MapView.overlays)
-        
-//        BusPath = MKPolyline(coordinates: pastBusLocations, count: pastBusLocations.count)
-//        MapView.addOverlay(BusPath)
-        if(pastBusLocations.count > 3){
-            for i in 0...pastBusLocations.count-2 {
-                BusPath = gradientPolyline(locations: pastBusLocations, index: i)
+        if (pastBusLocations.count > 0) {
+            busPoint.coordinate = pastBusLocations[pastBusLocations.count-1]
+            MapView.removeOverlays(MapView.overlays)
+            
+            //Loops through each location saved and adds them to the overlay on the map
+            for i in 1...pastBusLocations.count-1 {
+                //Makes each line a increased distance based on how far down the stack of locations they are, their i value.
+                BusPath = gradientPolyline(lineStrength: CGFloat(Float(i+1)/Float(pastBusLocations.count)), start: pastBusLocations[i-1], end: pastBusLocations[i])
+                
                 MapView.addOverlay(BusPath)
             }
+            
+            updateDistanceText()
         }
-        
-        updateDistanceText()
     }
     
     //MARK: View Rotated
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
             super.viewWillTransition(to: size, with: coordinator)
-//                print("Portrait")
                 mainFrame = CGRect.init(origin: CGPoint.init(x: 0, y: 0), size: size)
                 sidebarIsShown = false
                 ToggleMenu()
         }
-    //
+
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         if UIDevice.current.userInterfaceIdiom == .phone {
             return .portrait
@@ -187,7 +237,115 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             return .all
         }
     }
+    
+    //MARK: Changed Driver Status
+    //Called when Settings view is closed and made a change to the Driver Status
+    //This is done with a unwind segue called on the bus driver button in the settings
+    @IBAction func UpdateDriverView(segue: UIStoryboardSegue) {
+        if(isDriver){
+            locationManager.requestAlwaysAuthorization()
+            
+            //Present Alert when background tracking is not allowed
+            switch(CLLocationManager.authorizationStatus()) {
+                case .authorizedAlways:
+                
+                    if(isTracking){
+                        StartTrackingButton.isHidden = true
+                        StopTrackingButton.isHidden = false
+                    }else{
+                        StartTrackingButton.isHidden = false
+                        StopTrackingButton.isHidden = true
+                    }
+                
+                case .authorizedWhenInUse:
+                
+                    if(isTracking){
+                        StartTrackingButton.isHidden = true
+                        StopTrackingButton.isHidden = false
+                    }else{
+                        StartTrackingButton.isHidden = false
+                        StopTrackingButton.isHidden = true
+                    }
+                //Below is the alert that will be shown when the user isn't allowing their location to be tracked in the background
+                let alertController = UIAlertController(title: "Background Tracking Disabled", message: "Please go to Settings and turn on the permissions", preferredStyle: .alert)
+                let settingsAction = UIAlertAction(title: "Settings", style: .default) { (_) -> Void in
+                   guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+                       return
+                   }
+                   if UIApplication.shared.canOpenURL(settingsUrl) {
+                       UIApplication.shared.open(settingsUrl, completionHandler: { (success) in })
+                    }
+                }
+                let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+
+                alertController.addAction(cancelAction)
+                alertController.addAction(settingsAction)
+                // Presents the alert with parent view "self" so it is on the current view.
+                self.present(alertController, animated: true, completion: nil)
+                
+                
+                case .notDetermined, .restricted, .denied:
+                
+                    isTracking = false
+                    isDriver = false
+                    StartTrackingButton.isHidden = true
+                    StopTrackingButton.isHidden = true
+                
+                //Below is the alert that will be shown when the user isn't allowing their location to be tracked in the background
+                let alertController = UIAlertController(title: "Location Tracking Disabled", message: "Please go to Settings and turn on the permissions", preferredStyle: .alert)
+                let settingsAction = UIAlertAction(title: "Settings", style: .default) { (_) -> Void in
+                   guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+                       return
+                   }
+                   if UIApplication.shared.canOpenURL(settingsUrl) {
+                       UIApplication.shared.open(settingsUrl, completionHandler: { (success) in })
+                    }
+                }
+                let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+
+                alertController.addAction(cancelAction)
+                alertController.addAction(settingsAction)
+                // Presents the alert with parent view "self" so it is on the current view.
+                self.present(alertController, animated: true, completion: nil)
+                    
+                @unknown default:
+                    print("Oh no, The location permission is not recognized")
+            }
+        }else{
+            StartTrackingButton.isHidden = true
+            StopTrackingButton.isHidden = true
+        }
+    }
         
+    @IBAction func StopTrackingPressed(_ sender: Any) {
+        if(isDriver){
+            isTracking = false
+            UserDefaults.standard.setValue(false, forKey: "isTracking")
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            StartTrackingButton.isHidden = false
+            StopTrackingButton.isHidden = true
+        }else{
+            StartTrackingButton.isHidden = true
+            StopTrackingButton.isHidden = true
+        }
+    }
+    
+    @IBAction func StartTrackingPressed(_ sender: Any) {
+        if(isDriver){
+            isTracking = true
+            UserDefaults.standard.setValue(true, forKey: "isTracking")
+            locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+            
+            StartTrackingButton.isHidden = true
+            StopTrackingButton.isHidden = false
+            
+            sendNewBusLocation()
+        }else{
+            StartTrackingButton.isHidden = true
+            StopTrackingButton.isHidden = true
+        }
+    }
+    
 }
 
 //MARK: Map Functions
@@ -203,29 +361,105 @@ extension MapViewController {
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         if let routePolyline = overlay as? gradientPolyline {
-            print(routePolyline.pointCount)
             let renderer = MKPolylineRenderer(polyline: routePolyline)
             renderer.lineWidth = 4
-            renderer.strokeColor = UIColor.systemBlue.withAlphaComponent((routePolyline.distance!)/1.35)
-//            renderer.strokeColor = UIColor.blue.withAlphaComponent(0.9)
+            
+            //Makes the lines fade based on "Distance"
+            renderer.strokeColor = UIColor.systemBlue.withAlphaComponent((routePolyline.distance!)/1.25)
             return renderer
         }
         return MKOverlayRenderer(overlay: overlay)
     }
     
-    
+    //MARK: User Location Update
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if locations.count > 0{
             guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
             
-            userPoint.coordinate = CLLocationCoordinate2D.init(latitude: locValue.latitude, longitude: locValue.longitude)
+            userPoint.coordinate = locValue
+            
+            if(isTracking && isDriver){
+                sendNewBusLocation()
+            }
         }
+    }
+    
+    func sendNewBusLocation(){
+        let locValue: CLLocationCoordinate2D = userPoint.coordinate
+        //updateRange is the number of decimal places the location is rounded to
+        //They are rounded so that duplicate locations aren't sent saving data usage
+        let updateRange = 100000.0
+        let roundedLocValue = CLLocationCoordinate2D.init(latitude: round(locValue.latitude*updateRange)/updateRange, longitude: round(locValue.longitude*updateRange)/updateRange)
+        if(pastBusLocations.isEmpty){
+            ref.child("Bus").getData(completion: { (error, snapshot) -> Void in
+            let busLocs = (snapshot.value as! [[Double]])
+                pastBusLocations = []
+                for loc in busLocs {
+                    pastBusLocations.append(CLLocationCoordinate2D.init(latitude: loc[0], longitude: loc[1]))
+                }
+            })
+         }else{
+             if(pastBusLocations.last!.latitude != roundedLocValue.latitude || pastBusLocations.last!.longitude != roundedLocValue.longitude){
+                 var newData = [[Double]]()
+                 for loc in pastBusLocations {
+                     let thisLoc = [loc.latitude, loc.longitude]
+                     newData.append(thisLoc)
+                 }
+                 while newData.count > 40 {
+                     newData.removeFirst()
+                 }
+                 pastBusLocations.append(roundedLocValue)
+                 self.ref.child("Bus").setValue(newData)
+             }
+        }
+        
+        let Date = Date()
+        let calendar = Calendar.current
+        let time = String(format: "%02d",calendar.component(.hour, from: Date)) + ":" + String(format: "%02d", calendar.component(.minute, from: Date)) + ":" + String(format: "%02d",calendar.component(.second, from: Date))
+        ref.child("TimeStamp").setValue(time)
+        LastUpdateLabel.text = time
+        
+        if locationManager.desiredAccuracy == kCLLocationAccuracyBestForNavigation {
+            sendLocationToServer(loc: locValue, time: time)
+        }
+        
+        updateBusLocation()
+
+    }
+    
+    //MARK: Save Data to Server
+    func sendLocationToServer(loc: CLLocationCoordinate2D, time: String){
+        print("requested")
+
+        //Copied from https://stackoverflow.com/questions/37400639/post-data-to-a-php-method-from-swift
+        //I understand like none of it lol
+        
+        let request = NSMutableURLRequest(url: NSURL(string: "http://henhen1227.com/sps-bus-tracker/upload.php")! as URL)
+        request.httpMethod = "POST"
+        let postString = "loc=\(String(loc.longitude)+","+String(loc.latitude))&time=\(time)"
+        print(postString)
+        request.httpBody = postString.data(using: .utf8)
+
+        let task = URLSession.shared.dataTask(with: request as URLRequest) {
+                    data, response, error in
+
+            if error != nil {
+                print("error=\(error)")
+                return
+            }
+
+        print("response = \(String(describing: response))")
+
+        let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+                print("responseString = \(responseString)")
+        }
+        //The Request was sent and other processes were running async while it was loading so this resumes the sync loading. I think... 😂
+        task.resume()
     }
 }
 
 //MARK: Side View
 extension MapViewController {
-    
     func ToggleMenu(){
         if !sidebarIsShown {
             UIView.animate(withDuration: 0.5, animations: {
@@ -254,10 +488,6 @@ extension MapViewController {
         MapView.setRegion(localRegion, animated: true)
         sidebarIsShown = false
         ToggleMenu()
-    }
-    
-    @IBAction func Info(_ sender: Any) {
-        
     }
 }
 
@@ -293,11 +523,10 @@ extension MapViewController {
     func handleSnapshot(snapshot: DataSnapshot){
         if snapshot.exists() {
             if(snapshot.key == "Bus"){
-                let busData = snapshot.value as! String
-                pastBusLocations.removeAll()
-                for coordSet in busData.split(separator: "*") {
-                    let data = coordSet.split(separator: ",")
-                    pastBusLocations.append(CLLocationCoordinate2D.init(latitude: CLLocationDegrees(Double(data[0])!), longitude: Double(data[1])!))
+                let busLocs = snapshot.value as! [[Double]]
+                pastBusLocations = []
+                for loc in busLocs {
+                    pastBusLocations.append(CLLocationCoordinate2D.init(latitude: loc[0], longitude: loc[1]))
                 }
                 self.updateBusLocation()
             }else if snapshot.key == "TimeStamp"{
@@ -311,7 +540,6 @@ extension MapViewController {
 //MARK: Change Units
 extension MapViewController {
     
-    
     @IBAction func ChangeUnits(_ sender: Any) {
         toggleDistanceUnit()
         updateDistanceText()
@@ -320,7 +548,6 @@ extension MapViewController {
     func updateDistanceText(){
         let distanceToBusInMeters = distance(a: CLLocation.init(latitude: userPoint.coordinate.latitude, longitude: userPoint.coordinate.longitude), b: CLLocation.init(latitude: busPoint.coordinate.latitude, longitude: busPoint.coordinate.longitude))
         let distanceToSchoolInMeters = distance(a: CLLocation.init(latitude: userPoint.coordinate.latitude, longitude: userPoint.coordinate.longitude), b: CLLocation.init(latitude: schoolPoint.coordinate.latitude, longitude: schoolPoint.coordinate.longitude))
-        
         switch units {
         case .meters:
             BusDistance.text = String(Int(round(distanceToBusInMeters)))
@@ -401,10 +628,12 @@ class CustomIcon: MKPointAnnotation {
 }
 
 //MARK: Gradient Line
+//Added "Distance" varible to measure the amount of alpha the line should be drawn with.
 class gradientPolyline: MKPolyline {
     var distance: CGFloat?
-    convenience init(locations: [CLLocationCoordinate2D], index: Int) {
-            self.init(coordinates: [locations[index], locations[index+1]], count: 2)
-        distance = CGFloat(Float(locations.count - index)/Float(locations.count))
+    convenience init(lineStrength: CGFloat, start: CLLocationCoordinate2D, end: CLLocationCoordinate2D) {
+        self.init(coordinates: [start, end], count: 2)
+        distance = lineStrength
     }
 }
+

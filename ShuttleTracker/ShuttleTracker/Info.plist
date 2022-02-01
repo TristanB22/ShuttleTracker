@@ -224,12 +224,27 @@
 				</dict>
 			</array>
 		</dict>
-    </dict>
-    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-    <string>Allow SPS Bus Tracker to use your location to show it on the map and measure your distance to various places. </string>
-    <key>NSLocationUsageDescription</key>
-    <string>Allow SPS Bus Tracker to use your location to show it on the map and measure your distance to various places. </string>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>Allow SPS Bus Tracker to use your location to show it on the map and measure your distance to various places. </string>
+	</dict>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Allow SPS Bus Tracker to use your location to save it on a database to track and share your location with users.</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Allow SPS Bus Tracker to use your location to show it on the map and measure your distance to various places. </string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Allow SPS Bus Tracker to use your location to show it on the map and measure your distance to various places. </string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<false/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>henhen1227.com</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
+		</dict>
+	</dict>
 </dict>
 </plist>

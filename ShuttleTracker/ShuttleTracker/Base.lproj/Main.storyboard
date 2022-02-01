@@ -159,7 +159,6 @@
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <connections>
-                                                    <action selector="Info:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l69-Hr-P5t"/>
                                                     <segue destination="hKZ-24-nlI" kind="show" id="jKc-vh-gEG"/>
                                                 </connections>
                                             </button>
@@ -205,6 +204,56 @@
                                     </button>
                                 </subviews>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CY9-TF-n4G" userLabel="Bus Driver View">
+                                <rect key="frame" x="307" y="44" width="87" height="87"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qF-Wq-XUK">
+                                        <rect key="frame" x="0.0" y="0.0" width="87" height="87"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" cornerStyle="large">
+                                            <backgroundConfiguration key="background">
+                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                            </backgroundConfiguration>
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Start Tracking">
+                                                    <attributes>
+                                                        <color key="NSColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <font key="NSFont" size="15" name="Helvetica"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="StartTrackingPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l4y-HC-hZc"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3g-mo-QIf">
+                                        <rect key="frame" x="0.0" y="0.0" width="87" height="87"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" cornerStyle="large">
+                                            <backgroundConfiguration key="background">
+                                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                            </backgroundConfiguration>
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Stop Tracking">
+                                                    <attributes>
+                                                        <color key="NSColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <font key="NSFont" size="15" name="Helvetica"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="StopTrackingPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MIC-ah-FJJ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -218,6 +267,8 @@
                         <outlet property="MenuSideView" destination="GzV-rC-k9m" id="wbe-Jw-luu"/>
                         <outlet property="SchoolDistance" destination="JhV-SM-bmC" id="ZAQ-F0-kRh"/>
                         <outlet property="SchoolUnitLabel" destination="TtI-17-bJj" id="03s-tk-Ysg"/>
+                        <outlet property="StartTrackingButton" destination="6qF-Wq-XUK" id="MSd-eZ-N7l"/>
+                        <outlet property="StopTrackingButton" destination="a3g-mo-QIf" id="dUu-sx-6PR"/>
                         <outlet property="menuView" destination="q8v-sU-hsu" id="ueF-Qc-IYz"/>
                     </connections>
                 </viewController>
@@ -244,68 +295,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dl1-H7-lnN">
-                                        <rect key="frame" x="8" y="56" width="398" height="120"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3b-px-rKO" userLabel="Background lol">
-                                                <rect key="frame" x="0.0" y="0.0" width="398" height="120"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="    " cornerStyle="medium">
-                                                    <backgroundConfiguration key="background">
-                                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
-                                                    </backgroundConfiguration>
-                                                </buttonConfiguration>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZX-8j-v88">
-                                                <rect key="frame" x="8" y="18" width="84" height="84"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="" cornerStyle="medium">
-                                                    <backgroundConfiguration key="background" image="IconImage-4"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="SelectAppIcon4:" destination="hKZ-24-nlI" eventType="touchUpInside" id="nNa-81-gvY"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PER-xz-iYD">
-                                                <rect key="frame" x="106" y="18" width="84" height="84"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="" cornerStyle="medium">
-                                                    <backgroundConfiguration key="background" image="IconImage-3"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="SelectAppIcon3:" destination="hKZ-24-nlI" eventType="touchUpInside" id="tgm-Ue-tBC"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LDC-ei-PPf">
-                                                <rect key="frame" x="208" y="18" width="84" height="84"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="" cornerStyle="medium">
-                                                    <backgroundConfiguration key="background" image="AppIcon-5.png"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="SelectAppIcon5:" destination="hKZ-24-nlI" eventType="touchUpInside" id="zPE-wD-hDA"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRK-9k-fXk">
-                                                <rect key="frame" x="306" y="18" width="84" height="84"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="" cornerStyle="medium">
-                                                    <backgroundConfiguration key="background" image="IconImage-1"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="SelectAppIcon1:" destination="hKZ-24-nlI" eventType="touchUpInside" id="4Yy-nX-O45"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="v1.1.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HYM-xa-rSw">
-                                        <rect key="frame" x="8" y="731" width="348" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HYM-xa-rSw">
+                                        <rect key="frame" x="8" y="731" width="398" height="21"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -359,17 +350,11 @@
                                                 <rect key="frame" x="0.0" y="48" width="398" height="78"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" cornerStyle="medium">
+                                                <buttonConfiguration key="configuration" style="plain" title="Rate the App" cornerStyle="medium">
                                                     <backgroundConfiguration key="background">
                                                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                                     </backgroundConfiguration>
-                                                    <attributedString key="attributedTitle">
-                                                        <fragment content="Rate the App">
-                                                            <attributes>
-                                                                <font key="NSFont" size="18" name="Helvetica"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
+                                                    <fontDescription key="titleFontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="RateTheApp:" destination="hKZ-24-nlI" eventType="touchUpInside" id="B06-GZ-QwL"/>
@@ -377,34 +362,128 @@
                                             </button>
                                         </subviews>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HSy-rW-EPr">
-                                        <rect key="frame" x="8" y="372" width="398" height="78"/>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xVf-YF-cA2" userLabel="Bus Driver">
+                                        <rect key="frame" x="8" y="318" width="398" height="126"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" cornerStyle="medium">
-                                            <backgroundConfiguration key="background">
-                                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
-                                            </backgroundConfiguration>
-                                            <attributedString key="attributedTitle">
-                                                <fragment content="Bus Driver">
-                                                    <attributes>
-                                                        <font key="NSFont" size="17" name="Helvetica"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="RateTheApp:" destination="hKZ-24-nlI" eventType="touchUpInside" id="348-JG-BUW"/>
-                                        </connections>
-                                    </button>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZE-HS-PX6">
+                                                <rect key="frame" x="0.0" y="0.0" width="398" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Fj-PM-DWB">
+                                                <rect key="frame" x="0.0" y="48" width="398" height="78"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Our Website" cornerStyle="medium">
+                                                    <backgroundConfiguration key="background">
+                                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                                    </backgroundConfiguration>
+                                                    <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="OurWebsite:" destination="hKZ-24-nlI" eventType="touchUpInside" id="N18-TQ-kTo"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uCn-aW-pcB" userLabel="App Icons">
+                                        <rect key="frame" x="8" y="56" width="398" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CIn-hS-jmX" userLabel="Background lol">
+                                                <rect key="frame" x="0.0" y="0.0" width="398" height="120"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="    " cornerStyle="medium">
+                                                    <backgroundConfiguration key="background">
+                                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                                    </backgroundConfiguration>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <segue destination="OLv-UC-axP" kind="unwind" identifier="CloseSettingsView" unwindAction="UpdateDriverViewWithSegue:" id="vVw-vs-6UE"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9S5-d9-PjN">
+                                                <rect key="frame" x="8" y="18" width="84" height="84"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="" cornerStyle="medium">
+                                                    <backgroundConfiguration key="background" image="IconImage-4"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="SelectAppIcon4:" destination="hKZ-24-nlI" eventType="touchUpInside" id="Xbb-hr-u5P"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yb8-tX-Mav">
+                                                <rect key="frame" x="106" y="18" width="84" height="84"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="" cornerStyle="medium">
+                                                    <backgroundConfiguration key="background" image="IconImage-3"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="SelectAppIcon3:" destination="hKZ-24-nlI" eventType="touchUpInside" id="c3g-zw-Epv"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGh-Qb-1Lx">
+                                                <rect key="frame" x="208" y="18" width="84" height="84"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="" cornerStyle="medium">
+                                                    <backgroundConfiguration key="background" image="AppIcon-5.png"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="SelectAppIcon5:" destination="hKZ-24-nlI" eventType="touchUpInside" id="czd-o6-5Pr"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PWV-tf-3sc">
+                                                <rect key="frame" x="306" y="18" width="84" height="84"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="" cornerStyle="medium">
+                                                    <backgroundConfiguration key="background" image="IconImage-1"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="SelectAppIcon1:" destination="hKZ-24-nlI" eventType="touchUpInside" id="moV-N5-upO"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="edT-zI-fNq" userLabel="Bus Driver">
+                                        <rect key="frame" x="8" y="452" width="398" height="126"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bus Driver" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sIa-OK-m2i">
+                                                <rect key="frame" x="0.0" y="0.0" width="398" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bUK-Sc-br5">
+                                                <rect key="frame" x="0.0" y="48" width="398" height="78"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="       " cornerStyle="medium">
+                                                    <backgroundConfiguration key="background">
+                                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                                    </backgroundConfiguration>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="BusDriverSignIn:" destination="hKZ-24-nlI" eventType="touchUpInside" id="ppc-jP-oDL"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                 <viewLayoutGuide key="contentLayoutGuide" id="1PC-PN-bI7"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="CVE-ON-qmG"/>
                                 <variation key="default">
                                     <mask key="subviews">
                                         <exclude reference="tIq-Qz-fGD"/>
-                                        <exclude reference="HSy-rW-EPr"/>
                                     </mask>
                                 </variation>
                             </scrollView>
@@ -446,8 +525,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="GAn-au-Lxv"/>
+                    <connections>
+                        <outlet property="DriverStatusButton" destination="bUK-Sc-br5" id="plU-Oz-rGd"/>
+                        <outlet property="versionLabel" destination="HYM-xa-rSw" id="J9u-Rm-Wns"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uqb-yq-UXa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="OLv-UC-axP" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="695.6521739130435" y="83.705357142857139"/>
         </scene>
@@ -467,11 +551,14 @@
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="secondarySystemGroupedBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

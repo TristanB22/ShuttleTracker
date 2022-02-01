@@ -34,13 +34,96 @@
             padding: 30px;
             text-align: center;
         }
+        .subView {
+            margin: 0 auto;
+            width: 66%;
+            height: 100%;
+            z-index: 10;
+            background: rgba(60,60,60,0.3);
+        }
+        .subViewContainer {
+            margin-top: 30px;
+            float: left;
+            width: 33%;
+            height: 30%;
+            z-index: 5;
+            text-align: center;
+        }
+        .expanded {
+            margin: 5%;
+            width: 90%;
+            height: 80%;
+            z-index: 20;
+            position: absolute;
+            text-align: center;
+            background: rgba(200, 200, 200, 0.4);
+            color: rgba(0,0,0,1);
+        }
+        .isHidden {
+            color: rgba(0,0,0,0);
+            background-color: rgba(0,0,0,0);
+        }
+        .background{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -100;
+        }
+        .map {
+            width: 100%;
+            height: 100%;
+            opacity: 75%;
+        }
     </style>
+    <script>
+        function expand(a) {
+           var element = document.getElementById(a);
+           element.classList.toggle("expanded");
+           element.classList.toggle("subViewContainer");
+           var otherViews = document.getElementsByClassName("subViewContainer");
+           for (var i = 0; i < otherViews.length; i += 1) {
+               if(otherViews[i].id != a){
+                   otherViews[i].classList.toggle("isHidden");
+               }
+           }
+           var otherViews2 = document.getElementsByClassName("subView");
+           for (var i = 0; i < otherViews2.length; i += 1) {
+               if(otherViews2[i].id != a){
+                   otherViews2[i].classList.toggle("isHidden");
+               }
+           }
+        }
+    </script>
     </head>
     <body>
-        
+        <div class="background">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d29349.831148348014!2d-71.54298289385258!3d43.19879780780431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1636691389416!5m2!1sen!2sus" class="map" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
         <div class="mainView">
             <h1>Hello World</h1>
-            
+<!--            <button >Try it</button>-->
+
+                <div onclick="expand('OurGoal')" class="subViewContainer" id="OurGoal">
+                    <div class="subView">
+                        <h3>Our Goal</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                </div>
+                <div onclick="expand('HowItWorks')" class="subViewContainer" id="HowItWorks">
+                    <div class="subView">
+                        <h3>How it Works</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                    
+                </div>
+                <div onclick="expand('OurTeam')" class="subViewContainer" id="OurTeam">
+                    <div class="subView">
+                        <h3>Our Team</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+            </div>
         </div>
     </body>
 </html>
