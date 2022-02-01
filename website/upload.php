@@ -23,5 +23,5 @@ $file = fopen($url,'w');
 fwrite($file, $json);
 fclose($file);
 		  
-echo 'Added'.$json ;
+echo 'Added Location' ;
 ?>
